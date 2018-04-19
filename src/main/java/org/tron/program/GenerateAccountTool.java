@@ -26,7 +26,7 @@ public class GenerateAccountTool {
       System.out.println("Order: " + (i + 1));
       System.out.println("Private Key: " + ByteArray.toHexString(ecKey.getPrivKeyBytes()));
       System.out.println("Public Key: " + ByteArray.toHexString(ecKey.getPubKey()));
-      System.out.println("Address: " + ByteArray.toHexString(ecKey.getAddress()));
+      System.out.println("Address: " + Utils.encode58Check(ecKey.getAddress()));
       System.out.println();
     }
   }

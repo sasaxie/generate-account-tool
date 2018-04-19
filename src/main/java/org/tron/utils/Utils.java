@@ -25,6 +25,7 @@ import java.security.SecureRandom;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import org.tron.crypto.Hash;
 
 public class Utils {
   private static SecureRandom random = new SecureRandom();
@@ -64,5 +65,14 @@ public class Utils {
     ParsePosition pos = new ParsePosition(0);
     Date strtodate = formatter.parse(strDate, pos);
     return strtodate;
+  }
+
+  public static String encode58Check(byte[] input) {
+    byte[] hash0 = Hash.sha256(input);
+    byte[] hash1 = Hash.sha256(hash0);
+    byte[] inputCheck = new byte[input.length + 4];
+    System.arraycopy(input, 0, inputCheck, 0, input.length);
+    System.arraycopy(hash1, 0, inputCheck, input.length, 4);
+    return Base58.encode(inputCheck);
   }
 }
