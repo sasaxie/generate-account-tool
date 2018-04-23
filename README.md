@@ -5,7 +5,7 @@ java-tron generate account tool
 ```shell
 $ ./gradlew build
 $ ./gradlew clean shadowJar
-$ java -jar build/libs/GenerateAccountTool.jar -number 2
+$ java -jar build/libs/GenerateAccountTool.jar -number 1
 ```
 
 show:
