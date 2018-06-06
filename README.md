@@ -8,8 +8,9 @@ $ ./gradlew clean shadowJar
 $ java -jar build/libs/GenerateAccountTool.jar --number 2 --netType mainnet
 ```
 
-number: The number of generated accounts
-netType: Net type: testnet/mainnet
+**number:** The number of generated accounts
+
+**netType:** Net type: testnet/mainnet
 
 show:
 
