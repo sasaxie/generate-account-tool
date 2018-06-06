@@ -27,6 +27,7 @@ import java.security.Security;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tron.crypto.jce.TronCastleProvider;
+import org.tron.program.GenerateAccountTool;
 
 public class Hash {
 
@@ -131,7 +132,7 @@ public class Hash {
   public static byte[] sha3omit12(byte[] input) {
     byte[] hash = sha3(input);
     byte[] address = copyOfRange(hash, 11, hash.length);
-    address[0] = (byte) 0xa0;
+    address[0] = GenerateAccountTool.addressPrefix;
     return address;
   }
 }

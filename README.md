@@ -5,14 +5,19 @@ java-tron generate account tool
 ```shell
 $ ./gradlew build
 $ ./gradlew clean shadowJar
-$ java -jar build/libs/GenerateAccountTool.jar -number 2
+$ java -jar build/libs/GenerateAccountTool.jar --number 2 --netType mainnet
 ```
+
+number: The number of generated accounts
+netType: Net type: testnet/mainnet
 
 show:
 
 ```shell
 $ Order: 1
-$ Private Key: 92a7cdf943d6bce062df4b41ae32ed01c9112b491fbcaaee2facd9f11894caff
-$ Public Key: 0463ed98d30b4dc4e86251937ab68df2414ec84e49bd668db54c013de27b642438ecd5d22563dbdaf4656e967cdb6223a33e923dce12dcc7d2ecb9b56cd07a39c1
-$ Address: 27UcokvLn2oVUWXi7qKjADa1dYLxybhPhQf
+$ Private Key: 1ae53d5199736a523f53ae61ac7c6a8f81a299211a5547e89e89955b1c3feece
+$ Public Key: 0459d2b2e3daf4969df9ac4038a4801bd9a2beb396ecbaa10d6a3d0c3e375886f6a80bc202aee694bc24f10e144528d768972c2e16fb84b062dad9c482d0e97ff3
+$ Address(Base58): TQX4LxaYzqwRf6YczefcfrTDqNczgkmUMK
+$ Address(Hex): 419f97d8680e980506e2eb49dd315cd358cd82b381
+$ 
 ```
