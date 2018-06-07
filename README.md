@@ -2,10 +2,17 @@
 
 java-tron generate account tool
 
+## Quick start
+
 ```shell
 $ ./gradlew build
-$ ./gradlew clean shadowJar
-$ java -jar build/libs/GenerateAccountTool.jar --number 2 --netType mainnet
+```
+
+## CMD
+
+```shell
+cd generate-account-tool/
+java -jar build/libs/GenerateAccountTool.jar --number 2 --netType testnet
 ```
 
 **number:** The number of generated accounts
@@ -22,3 +29,14 @@ $ Address(Base58): TQX4LxaYzqwRf6YczefcfrTDqNczgkmUMK
 $ Address(Hex): 419f97d8680e980506e2eb49dd315cd358cd82b381
 $ 
 ```
+
+## GUI
+
+```shell
+cd generate-account-tool/
+java -jar build/libs/GenerateAccountToolGUI.jar
+```
+
+show:
+
+<img src="/src/main/resources/show.png?raw=true">

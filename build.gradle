@@ -7,7 +7,6 @@ apply plugin: 'idea'
 apply plugin: 'com.github.johnrengelman.shadow'
 
 sourceCompatibility = 1.8
-
 mainClassName = "org.tron.program.GenerateAccountTool"
 
 repositories {
@@ -50,9 +49,31 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
-shadowJar {
-    zip64 true
-    baseName = "GenerateAccountTool"
-    classifier = null
-    version = 1
+if (project.hasProperty("mainClass")) {
+    mainClassName = mainClass
+}
+
+def binaryRelease(taskName, jarName, mainClass) {
+    return tasks.create("${taskName}", Jar) {
+        baseName = jarName
+        version = null
+        from(sourceSets.main.output) {
+            include "/**"
+        }
+
+        from {
+            configurations.compile.collect {
+                it.isDirectory() ? it : zipTree(it)
+            }
+        }
+
+        manifest {
+            attributes "Main-Class": "${mainClass}"
+        }
+    }
+}
+
+artifacts {
+    archives(binaryRelease('buildGenerateAccountTool', 'GenerateAccountTool', 'org.tron.program.GenerateAccountTool'),
+            binaryRelease('buildGenerateAccountToolGUI', 'GenerateAccountToolGUI', 'org.tron.gui.GenerateAccountToolGUI'))
 }
